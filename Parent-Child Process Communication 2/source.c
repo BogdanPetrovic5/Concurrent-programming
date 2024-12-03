@@ -17,6 +17,7 @@ void parentProccess(){
             kill(pid_child, SIGCHLD);
         }else if(randomNumber == 0){
             kill(pid_child, SIGFPE);
+            break;
         }
         sleep(6);
         
@@ -31,7 +32,7 @@ void signal_handler(int signal){
         printf("Number decreased\n");
     }else if(signal == SIGFPE){
         printf("Task finished!\n");
-        printf("%d\n", number);
+        printf("Final number: %d\n", number);
         exit(0);
     }
 }
